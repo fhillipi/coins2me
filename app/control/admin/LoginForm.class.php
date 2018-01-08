@@ -57,15 +57,34 @@ class LoginForm extends TPage
             $this->form->addFields( [$unit, $unit_id] );
             $login->setExitAction(new TAction( [$this, 'onExitUser'] ) );
         }
+
         
         $btn = $this->form->addAction(_t('Log in'), new TAction(array($this, 'onLogin')), '');
         $btn->class = 'btn btn-primary';
+        $btn->name = 'btn_entrar';
         $btn->style = 'height: 40px;width: 90%;display: block;margin: auto;font-size:17px;';
+        
+        //$this->form->addFields( ['<p>', ''] );
+        //$btn3 = $this->form->addField(
+        
+        
+        $btn2 = $this->form->addAction('Recuperar Senha', new TAction(array($this, 'onRecovery')), '');
+        $btn2->class = 'btn btn-warning';
+        $btn2->name = 'btn_onRecovery';
+        $btn2->style = 'height: 40px;width: 90%;display: block;margin: auto;font-size:17px;';
+        
+        //$recupera = new TActionLink(_t('Forgot your password?'), new TAction(array($this, 'onRecovery')) );
+        ///$recupera->style = 'font-size:16px;width:90%;padding:10px';
+        
+        //$row = $table->addRow();
+        //$cell = $row->addCell( $recupera ); 
         
         $wrapper = new TElement('div');
         $wrapper->style = 'margin:auto; margin-top:100px;max-width:460px;';
         $wrapper->id    = 'login-wrapper';
         $wrapper->add($this->form);
+        
+        
         
         // add the form to the page
         parent::add($wrapper);
@@ -176,6 +195,14 @@ class LoginForm extends TPage
             TSession::setValue('logged', FALSE);
             TTransaction::rollback();
         }
+    }
+    
+    /** 
+     * Recovery
+     */     
+    public function onRecovery()
+    {
+        AdiantiCoreApplication::gotoPage('SendEmailPasswordForm');
     }
     
     /** 

@@ -20,7 +20,7 @@ class PublicView extends TPage
         // replace the main section variables
         $html->enableSection('main', array());
         
-        $panel = new TPanelGroup('Public!');
+        $panel = new TPanelGroup('Publicaa!');
         $panel->add($html);
         $panel->style = 'margin: 100px';
         

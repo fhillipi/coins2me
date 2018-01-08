@@ -3,7 +3,8 @@ require_once 'init.php';
 
 class TApplication extends AdiantiCoreApplication
 {
-    static public function run($debug = FALSE)
+                                        //PRODUÇÃO alterar para false
+    static public function run($debug = TRUE)
     {
         new TSession;
         

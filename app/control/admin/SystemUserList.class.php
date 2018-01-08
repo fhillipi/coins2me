@@ -65,6 +65,8 @@ class SystemUserList extends TStandardList
         $btn->class = 'btn btn-sm btn-primary';
         $this->form->addAction(_t('New'),  new TAction(array('SystemUserForm', 'onEdit')), 'bs:plus-sign green');
         
+        //----------------------------------------------------------------------------------------------------------
+        
         // creates a DataGrid
         $this->datagrid = new BootstrapDatagridWrapper(new TDataGrid);
         $this->datagrid->datatable = 'true';

@@ -1,0 +1,19 @@
+------------------------ ESTRUTURA DOS BANCOS DE DADOS USADOS ------------------------------------------ 
+
+1) Tabelas escritas em caixa baixa;
+
+2) ATRIBUTOS escritos em caixa alta;
+
+---
+
+3) O campo de chave primária é nomeado por CÓDIGO
+    Tipo int ou big int (sempre no tamanho máximo).
+
+4) O campo de chave extrangeira é nomeado com o mesmo nome da tabela no qual a referencia, 
+    precedido por fk (usar caixa alta).
+    ex.: 'fkEXCHANGE', É a chave estrangeira na tabela 'cripto_asset' que referencia a tabela 'exchange'.
+
+5) Os campos STATUS são do tipo set, seguindo o padrão 0 = disable, 1 = enable, x = outros;
+
+
+

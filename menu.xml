@@ -91,9 +91,17 @@
                 <icon></icon>
                 <action>CriptomoedaList</action>
             </menuitem>
-            <menuitem label='Common page 3'>
+            <menuitem label='Usuarios'>
                 <icon></icon>
-                <action>CommonPage</action>
+                <action>UsuarioList</action>
+            </menuitem>
+            <menuitem label='Carteiras'>
+                <icon></icon>
+                <action>UsuarioCarteiraList</action>
+            </menuitem>
+            <menuitem label='Exchanges'>
+                <icon></icon>
+                <action>ExchangeList</action>
             </menuitem>
         </menu>
     </menuitem>

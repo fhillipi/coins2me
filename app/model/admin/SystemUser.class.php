@@ -34,6 +34,10 @@ class SystemUser extends TRecord
         parent::addAttribute('frontpage_id');
         parent::addAttribute('system_unit_id');
         parent::addAttribute('active');
+        
+        parent::addAttribute('reset_pass');
+        parent::addAttribute('data_pass');
+        parent::addAttribute('uid_pass'); 
     }
 
     /**
@@ -238,14 +242,16 @@ class SystemUser extends TRecord
     public static function authenticate($login, $password)
     {
         $user = self::newFromLogin($login);
+        $password = hash('sha512', $password); 
         
+        //var_dump($password);
         if ($user instanceof SystemUser)
         {
             if ($user->active == 'N')
             {
                 throw new Exception(_t('Inactive user'));
-            }
-            else if (isset( $user->password ) AND ($user->password == md5($password)) )
+            }          
+            else if (isset( $user->password ) AND ($user->password == $password) )
             {
                 return $user;
             }

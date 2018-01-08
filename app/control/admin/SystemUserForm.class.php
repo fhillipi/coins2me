@@ -171,6 +171,11 @@ class SystemUserForm extends TPage
                 {
                     throw new Exception(_t('An user with this login is already registered'));
                 }
+                //teste duplicação de cadastro de e-mail
+                if (SystemUser::newFromEmail($object->email) instanceof SystemUser)
+                {
+                 throw new Exception(_t('An user with this email is already registered'));
+                } 
                 
                 if ( empty($object->password) )
                 {
@@ -185,7 +190,9 @@ class SystemUserForm extends TPage
                 if( $object->password !== $param['repassword'] )
                     throw new Exception(_t('The passwords do not match'));
                 
-                $object->password = md5($object->password);
+                //$password = hash('sha512', $password); 
+                //$object->password = md5($object->password);
+                $object->password = hash('sha512', $object->password); 
             }
             else
             {
